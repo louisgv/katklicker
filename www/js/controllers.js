@@ -2,24 +2,47 @@ angular
   .module('starter.controllers', [])
   .controller('DashCtrl', function($scope, $timeout) {
 
-    $scope.catFrames = ['img/cat0/0.jpg', 'img/cat0/1.jpg', 'img/cat0/2.jpg'];
+    // $scope.catFrames = ['img/cat0/0.jpg', 'img/cat0/1.jpg', 'img/cat0/2.jpg'];
 
-    // $scope.cat = 1;
-    $scope.cat = 'img/cat0/1.jpg';
+    // $scope.cat = 'img/cat0/1.jpg';
+    $scope.cat = 1;
+
+    var mew = new Howl({
+      urls: ['audio/sfx/mew.mp3'],
+      sprite: {
+        mew0: [
+          0, 720
+        ],
+        mew1: [
+          720, 1000
+        ],
+        mew2: [1650, 1700]
+      }
+    });
+
+    mew.play('mew2');
+
+    function playRandomMew() {
+      // body...
+      mew.play('mew' + Math.floor(Math.random() * Object.keys(mew.sprite()).length));
+    }
+
     $scope.onSwipeRight = function() {
-      // $scope.cat++;
-      $scope.cat = 'img/cat0/2.jpg';
+      $scope.cat++;
+      playRandomMew();
+      // $scope.cat = 'img/cat0/2.jpg';
       $timeout(function() {
-        // $scope.cat--;
-        $scope.cat = 'img/cat0/1.jpg';
+        $scope.cat--;
+        // $scope.cat = 'img/cat0/1.jpg';
       }, 180);
     }
     $scope.onSwipeLeft = function() {
-      // $scope.cat--;
-      $scope.cat = 'img/cat0/0.jpg';
+      $scope.cat--;
+      playRandomMew();
+      // $scope.cat = 'img/cat0/0.jpg';
       $timeout(function() {
-        // $scope.cat++;
-        $scope.cat = 'img/cat0/1.jpg';
+        $scope.cat++;
+        // $scope.cat = 'img/cat0/1.jpg';
       }, 180);
     }
 

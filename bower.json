@@ -3,5 +3,8 @@
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.1.1"
+  },
+  "dependencies": {
+    "howler.js": "howler#~1.1.28"
   }
 }

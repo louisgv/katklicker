@@ -2,7 +2,7 @@
 
 angular
   .module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic.ion.imageCacheFactory'])
-  .run(function($ionicPlatform, $ImageCacheFactory) {
+  .run(function($ionicPlatform, $ImageCacheFactory, $rootScope) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -17,6 +17,19 @@ angular
       }
 
       $ImageCacheFactory.Cache(['img/cat0/0.jpg', 'img/cat0/1.jpg', 'img/cat0/2.jpg']);
+
+      //Setup BGm
+      $rootScope.bgm = new Howl({
+        urls: [
+          'audio/bgm/mii.mp3'
+        ],
+        autoplay: true,
+        loop: true,
+        volume: 0.5,
+        onend: function() {
+          console.log('Finished!');
+        }
+      });
     });
   })
   .config(function($stateProvider, $urlRouterProvider) {
