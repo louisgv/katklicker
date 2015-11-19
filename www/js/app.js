@@ -1,8 +1,8 @@
 // Ionic Starter App
 
 angular
-  .module('starter', ['ionic', 'starter.controllers', 'starter.services'])
-  .run(function($ionicPlatform) {
+  .module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic.ion.imageCacheFactory'])
+  .run(function($ionicPlatform, $ImageCacheFactory) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -15,6 +15,8 @@ angular
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
+
+      $ImageCacheFactory.Cache(['img/cat0/0.jpg', 'img/cat0/1.jpg', 'img/cat0/2.jpg']);
     });
   })
   .config(function($stateProvider, $urlRouterProvider) {

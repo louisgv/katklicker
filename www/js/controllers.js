@@ -1,18 +1,25 @@
 angular
   .module('starter.controllers', [])
   .controller('DashCtrl', function($scope, $timeout) {
-    $scope.cat = 1;
-    $scope.onSwipeRight = function() {
-      $scope.cat++;
-      $timeout(function() {
-        $scope.cat--;
 
+    $scope.catFrames = ['img/cat0/0.jpg', 'img/cat0/1.jpg', 'img/cat0/2.jpg'];
+
+    // $scope.cat = 1;
+    $scope.cat = 'img/cat0/1.jpg';
+    $scope.onSwipeRight = function() {
+      // $scope.cat++;
+      $scope.cat = 'img/cat0/2.jpg';
+      $timeout(function() {
+        // $scope.cat--;
+        $scope.cat = 'img/cat0/1.jpg';
       }, 180);
     }
     $scope.onSwipeLeft = function() {
-      $scope.cat--;
+      // $scope.cat--;
+      $scope.cat = 'img/cat0/0.jpg';
       $timeout(function() {
-        $scope.cat++;
+        // $scope.cat++;
+        $scope.cat = 'img/cat0/1.jpg';
       }, 180);
     }
 
