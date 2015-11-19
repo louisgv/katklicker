@@ -1,18 +1,18 @@
 angular
   .module('starter.controllers', [])
   .controller('DashCtrl', function($scope, $timeout) {
-    $scope.cat = 'img/cat0/2.jpg';
+    $scope.cat = 1;
     $scope.onSwipeRight = function() {
-      $scope.cat = 'img/cat0/1.jpg';
+      $scope.cat++;
       $timeout(function() {
-        $scope.cat = 'img/cat0/2.jpg';
+        $scope.cat--;
 
       }, 180);
     }
     $scope.onSwipeLeft = function() {
-      $scope.cat = 'img/cat0/0.jpg';
+      $scope.cat--;
       $timeout(function() {
-        $scope.cat = 'img/cat0/2.jpg';
+        $scope.cat++;
       }, 180);
     }
 

@@ -9093,8 +9093,8 @@ a.button {
   text-align: center; }
 
 .cat {
-  width: 100%;
-  max-height: 99vh; }
+  max-width: 100%;
+  max-height: 90vh; }
 
 .xcentre {
   display: -webkit-box;
